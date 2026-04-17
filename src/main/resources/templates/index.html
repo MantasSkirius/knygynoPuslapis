@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Knygos saraso puslapis</title>
+</head>
+<body>
+    <form action="/knygosPaieska" method="get">
+    <!-- <label for="fname">First name:</label><br> -->
+    <input type="text"  name="q" placeholder="Įveskite ieškomos knygos pavadinimą..."><br>
+    <button type="submit">ieškoti</button>
+    </form> 
+    <table>
+        <thead>
+        <tr>
+            <th>Pavadinimas</th>
+            <th>Leidejas</th>
+            <th>Puslapiu skaicius</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="knyga : ${knygos}">
+            <td th:text="${knyga.pavadinimas}">Pavadinimas-placeholder</td>
+            <td th:text="${knyga.leidejas}">Leidejas-placeholder</td>
+            <td th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

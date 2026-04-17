@@ -19,7 +19,7 @@ public class KnygaRowMapper implements RowMapper<Knyga> {
 				.aprasymas(rs.getString("aprasymas"))
 				.zanrai(rs.getString("zanrai"))
 				.metai(rs.getInt("metai"))
-				.leidiejas(rs.getString("leidiejas"))
+				.leidejas(rs.getString("leidejas"))
 				.puslapiuSkaicius(rs.getInt("puslapiu_skaicius"))
 				.formatoInformacija(rs.getString("formato_informacija"))
 				.kalba(rs.getString("kalba"))

@@ -16,7 +16,6 @@ import com.skiriaus.knygynoPuslapis.domain.Knyga;
 @Repository
 public class KnygaDaoImpl implements KnygaDao {
 	private final JdbcTemplate jdbcTemplate;
-	
 	public KnygaDaoImpl(final JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -41,6 +40,11 @@ public class KnygaDaoImpl implements KnygaDao {
 		List<Knyga> results = jdbcTemplate.query(
 				"select * from knygos where id in ("+klaustukai+")"
 				, new KnygaRowMapper(), ids.toArray());
+		return results;
+	}
+
+	public List<Knyga> findAll(){
+		List<Knyga> results = jdbcTemplate.query("select * from knygos LIMIT ?", new KnygaRowMapper(), DaoUtils.MAX_REZULTATU_SKAICIUS);
 		return results;
 	}
 

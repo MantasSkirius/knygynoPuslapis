@@ -18,7 +18,7 @@ public class KnygaImpl implements Knyga {
 	private String aprasymas;
 	private String zanrai;
 	private Integer metai;
-	private String leidiejas;
+	private String leidejas;
 	private Integer puslapiuSkaicius;
 	private String formatoInformacija;
 	private String kalba;

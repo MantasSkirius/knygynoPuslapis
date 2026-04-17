@@ -9,7 +9,7 @@ CREATE TABLE knygos (
     aprasymas TEXT NOT NULL,
     zanrai TEXT not NULL,
     metai INT not NULL,
-    leidiejas VARCHAR(255) not NULL,
+    leidejas VARCHAR(255) not NULL,
     puslapiu_skaicius INT,
     formato_informacija VARCHAR (255),
     kalba Varchar(255)

@@ -8,4 +8,5 @@ import com.skiriaus.knygynoPuslapis.domain.Knyga;
 public interface KnygaDao {
 	public Optional<Knyga> findOne(Long id);
     public List<Knyga> findByIds(List<Long>ids);
+    public List<Knyga> findAll();
 }
