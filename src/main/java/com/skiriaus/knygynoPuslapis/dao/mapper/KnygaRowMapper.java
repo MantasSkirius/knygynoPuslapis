@@ -23,6 +23,7 @@ public class KnygaRowMapper implements RowMapper<Knyga> {
 				.puslapiuSkaicius(rs.getInt("puslapiu_skaicius"))
 				.formatoInformacija(rs.getString("formato_informacija"))
 				.kalba(rs.getString("kalba"))
+				.autoriai(rs.getString("autoriai"))
 				.build();
 	}
 
