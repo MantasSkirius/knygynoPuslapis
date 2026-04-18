@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,78 +11,104 @@ xmlns:th="http://www.thymeleaf.org"
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <title>Knygos saraso puslapis</title>
 </head>
+
 <body>
     <!-- Navigacijos pradzia -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="/">Knygos</a></li>
-        <li class="nav-item"><a class="nav-link" href="/">Knygynai</a></li>
-        <li class="nav-item"><a class="nav-link" href="/">Renginiai</a></li>
-        <li class="nav-item"><a class="nav-link" href="/">Konkursai</a></li>
-        <li class="nav-item"><a class="nav-link" href="/">Dovanų kortelės</a></li>
-      </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="/">Knygos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Knygynai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Renginiai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Konkursai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Dovanų kortelės</a></li>
+                </ul>
 
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item">
-          <a class="nav-link px-3" href="" title="Mėgstamos">
-            <i class="bi bi-heart-fill"></i>
-          </a>
-        </li>
+                <ul class="navbar-nav ms-auto align-items-center">
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle me-1"></i> Paskyra
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
-            <li><a class="dropdown-item" href="">Mano profilis</a></li>
-            <li><a class="dropdown-item" href="">Užsakymai</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-danger" href="">Atsijungti</a></li>
-          </ul>
-        </li>
-      </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="">
+                            <i class="bi bi-cart"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="accountDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> Paskyra
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item active" href="">Mano profilis</a></li>
+                            <li><a class="dropdown-item" href="">Užsakymai</a></li>
+                            <li><a class="dropdown-item text-danger" href="">Atsijungti</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="/">
+                            <i class="bi bi-heart me-1"></i>Pažymėtos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigacijos pabaiga -->
+    <div class="row">
+        <div class="col-10 offset-1 mt-3 mb-5 pilkas-fonas">
+            <!-- Formos pradzia -->
+            <div class="row align-items-center">
+                <div class="col-2 pavadinimas">
+                    <i class="bi bi-book"></i>
+                    <span class="pavadinimas">P.G. Knygynas</span>
+                </div>
+
+                <div class="col-10">
+                    <form action="/" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q"
+                                placeholder="Įveskite ieškomos knygos pavadinimą...">
+                            <button class="btn btn-primary" type="submit">Ieškoti</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Formos pabaiga -->
+             <!-- Knygu sarasas: -->
+            <div th:each="knyga : ${knygos}" class="knyga-sarase row mt-3">
+                <div class="col-auto">
+                    <a th:href="@{/knyga(knyga=${knyga.id})}">
+                        <img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" />
+                    </a>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="mt-1">
+                                <a class="knygos-pavadinimas" th:href="@{/knyga(knyga=${knyga.id})}" th:text="${knyga.pavadinimas}">
+                                    Pavadinimas-placeholder
+                                </a>
+                            </div>
+                            <span class="" th:text="${knyga.autoriai}">autoriai-placeholder</span>
+                            <span th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</span>
+                            <span> puslapių</span>
+                            <div th:text="${knyga.aprasymas}" class="aprasymas-tekstas">aprasymas-placeholder</div>
+                        </div>
+                        <div class="col-2">
+                            <div th:text="${knyga.kaina}">kaina-placeholder</div>
+                            <button class="btn btn-primary">Pridėtį į krepšelį</buttoni>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Knygu saraso pabaiga -->
+        </div>
     </div>
-  </div>
-</nav>
- <!-- Navigacijos pabaiga -->
-    <form action="/" method="get">
-    <!-- <label for="fname">First name:</label><br> -->
-    <input type="text" width="1000" name="q" placeholder="Įveskite ieškomos knygos pavadinimą, autorių, žanrus, metus..."><br>
-    <button type="submit">ieškoti</button>
-    </form>
-    <table>
-        <thead>
-        <tr>
-            <th></th>
-            <th>Leidejas</th>
-            <th>Puslapiu skaicius</th>
-            <th>Autorius(iai)</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="knyga : ${knygos}">
-            <td>
-                <a th:href="@{/knyga(knyga=${knyga.id})}">
-                    <img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" />
-                </a>
-            </td>
-            <td>
-                <a th:href="@{/knyga(knyga=${knyga.id})}" th:text="${knyga.pavadinimas}">
-                    Pavadinimas-placeholder
-                </a>
-            </td>
-            <td th:text="${knyga.leidejas}">Leidejas-placeholder</td>
-            <td th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</td>
-            <td th:text="${knyga.autoriai}">autoriai-placeholder</td>
-            <td th:text="${knyga.kaina}">kaina-placeholder</td>
-        </tr>
-        </tbody>
-    </table>
 </body>
+
 </html>
