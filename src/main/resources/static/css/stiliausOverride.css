@@ -1,0 +1,30 @@
+:root{
+    --pagrindine-tamsi-spalva:#0d392a ;
+}
+.btn-primary, .bg-primary, .text-primary, .bg-dark {
+    background-color: var(--pagrindine-tamsi-spalva) !important;
+    border-color: var(--pagrindine-tamsi-spalva) !important;
+    color: white !important;
+}
+*{
+font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
+.navbar {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    min-height: auto !important; 
+}
+
+.navbar-nav .nav-link {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    font-size: 0.9rem; 
+    line-height: 1;    
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem !important;
+}

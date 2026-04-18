@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${knyga.pavadinimas}">Knygos detalės</title>
-    <style>
-    </style>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
 <a href="/">← Grįžti į sąrašą</a>
@@ -14,6 +13,7 @@
         <img th:src="@{${knyga.virselioAdresas}}" width="300px" alt="Knygos viršelis" />
     </div>
 
+    <code class="text-primary">testas</code>
     <div >
         <h1 th:text="${knyga.pavadinimas}">Pavadinimas</h1>
         <ul>

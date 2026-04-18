@@ -6,9 +6,52 @@ xmlns:th="http://www.thymeleaf.org"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{css/stiliausOverride.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <title>Knygos saraso puslapis</title>
 </head>
 <body>
+    <!-- Navigacijos pradzia -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="/">Knygos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Knygynai</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Renginiai</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Konkursai</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Dovanų kortelės</a></li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link px-3" href="" title="Mėgstamos">
+            <i class="bi bi-heart-fill"></i>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-1"></i> Paskyra
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+            <li><a class="dropdown-item" href="">Mano profilis</a></li>
+            <li><a class="dropdown-item" href="">Užsakymai</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="">Atsijungti</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ <!-- Navigacijos pabaiga -->
     <form action="/" method="get">
     <!-- <label for="fname">First name:</label><br> -->
     <input type="text" width="1000" name="q" placeholder="Įveskite ieškomos knygos pavadinimą, autorių, žanrus, metus..."><br>
