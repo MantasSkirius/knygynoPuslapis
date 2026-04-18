@@ -12,4 +12,5 @@ public interface Knyga {
     String getFormatoInformacija();
     String getKalba();
     String getAutoriai();
+    Double getKaina();
 }

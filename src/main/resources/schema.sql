@@ -13,7 +13,8 @@ CREATE TABLE knygos (
     leidejas VARCHAR(255) NOT NULL,
     puslapiu_skaicius INT,
     formato_informacija VARCHAR(255),
-    kalba VARCHAR(255)
+    kalba VARCHAR(255),
+    kaina DECIMAL(10,2)
 );
 
 CREATE TABLE autoriai (

@@ -26,4 +26,5 @@ public class KnygaImpl implements Knyga {
 	private String formatoInformacija;
 	private String kalba;
 	private String autoriai;
+	private Double kaina;
 }

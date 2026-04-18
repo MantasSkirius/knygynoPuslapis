@@ -17,7 +17,7 @@ xmlns:th="http://www.thymeleaf.org"
     <table>
         <thead>
         <tr>
-            <th>Pavadinimas</th>
+            <th></th>
             <th>Leidejas</th>
             <th>Puslapiu skaicius</th>
             <th>Autorius(iai)</th>
@@ -25,11 +25,20 @@ xmlns:th="http://www.thymeleaf.org"
         </thead>
         <tbody>
         <tr th:each="knyga : ${knygos}">
-            <td><img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" /></td>
-            <td th:text="${knyga.pavadinimas}">Pavadinimas-placeholder</td>
+            <td>
+                <a th:href="@{/knyga(knyga=${knyga.id})}">
+                    <img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" />
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/knyga(knyga=${knyga.id})}" th:text="${knyga.pavadinimas}">
+                    Pavadinimas-placeholder
+                </a>
+            </td>
             <td th:text="${knyga.leidejas}">Leidejas-placeholder</td>
             <td th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</td>
             <td th:text="${knyga.autoriai}">autoriai-placeholder</td>
+            <td th:text="${knyga.kaina}">kaina-placeholder</td>
         </tr>
         </tbody>
     </table>

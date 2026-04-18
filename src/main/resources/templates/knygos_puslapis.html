@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Knygos saraso puslapis</title>
+    <title th:text="${knyga.pavadinimas}">Knygos detalės</title>
+    <style>
+    </style>
 </head>
 <body>
-    <form action="/" method="get">
-    <!-- <label for="fname">First name:</label><br> -->
-    <input type="text" width="1000" name="q" placeholder="Įveskite ieškomos knygos pavadinimą, autorių, žanrus, metus..."><br>
-    <button type="submit">ieškoti</button>
-    </form>
-    <table>
-        <thead>
-        <tr>
-            <th>Pavadinimas</th>
-            <th>Leidejas</th>
-            <th>Puslapiu skaicius</th>
-            <th>Autorius(iai)</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="knyga : ${knygos}">
-            <td><img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" /></td>
-            <td th:text="${knyga.pavadinimas}">Pavadinimas-placeholder</td>
-            <td th:text="${knyga.leidejas}">Leidejas-placeholder</td>
-            <td th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</td>
-            <td th:text="${knyga.autoriai}">autoriai-placeholder</td>
-        </tr>
-        </tbody>
-    </table>
+<a href="/">← Grįžti į sąrašą</a>
+
+<div>
+    <div>
+        <img th:src="@{${knyga.virselioAdresas}}" width="300px" alt="Knygos viršelis" />
+    </div>
+
+    <div >
+        <h1 th:text="${knyga.pavadinimas}">Pavadinimas</h1>
+        <ul>
+            <li>
+                Autorius
+                <a th:href="@{/(q=${knyga.autoriai})}" th:text="${knyga.autoriai}"></a>
+            </li>
+
+            <li>
+                Leidėjas
+                <a th:href="@{/(q=${knyga.leidejas})}" th:text="${knyga.leidejas}"></a>
+            </li>
+
+            <li>Metai <span th:text="${knyga.metai}"></span></li>
+            <li>Puslapiai<span th:text="${knyga.puslapiuSkaicius}"></span></li>
+            <li>Žanrai<span th:text="${knyga.zanrai}"></span></li>
+            <li>Kalba<span th:text="${knyga.kalba}"></span></li>
+            <li>Formatas<span th:text="${knyga.formatoInformacija}"></span></li>
+            <li>Kaina<span th:text="${knyga.kaina}"></span></li>
+            <li>Aprašymas
+                <p th:text="${knyga.aprasymas}"></p>
+            </li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>

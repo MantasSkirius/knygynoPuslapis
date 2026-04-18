@@ -24,6 +24,7 @@ public class KnygaRowMapper implements RowMapper<Knyga> {
 				.formatoInformacija(rs.getString("formato_informacija"))
 				.kalba(rs.getString("kalba"))
 				.autoriai(rs.getString("autoriai"))
+				.kaina(rs.getDouble("kaina"))
 				.build();
 	}
 
