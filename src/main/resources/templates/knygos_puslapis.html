@@ -4,16 +4,102 @@
     <meta charset="UTF-8">
     <title th:text="${knyga.pavadinimas}">Knygos detalės</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{css/stiliausOverride.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
-<a href="/">← Grįžti į sąrašą</a>
+<!-- Nukopijuota iš index.html -->
+ <!-- Krepselio langas: -->
+    <div class="modal fade" id="krepselioZinute" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-check-circle text-success fs-1 mb-3"></i>
+                    <h5 class="mb-4">Knyga pridėta į krepšelį</h5>
 
+                    <div class="d-grid gap-2">
+                        <a href="/" class="btn btn-primary">Į krepšelį</a>
+
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Ieškoti toliau
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigacijos pradzia -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="/">Knygos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Knygynai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Renginiai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Konkursai</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Dovanų kortelės</a></li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="">
+                            <i class="bi bi-cart"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="accountDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> Paskyra
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item active" href="">Mano profilis</a></li>
+                            <li><a class="dropdown-item" href="">Užsakymai</a></li>
+                            <li><a class="dropdown-item text-danger" href="">Atsijungti</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="/">
+                            <i class="bi bi-heart me-1"></i>Pažymėtos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigacijos pabaiga -->
+    <div class="row">
+        <div class="col-10 offset-1 mt-3 mb-5 pilkas-fonas">
+            <!-- Formos pradzia -->
+            <div class="row align-items-center">
+                <div class="col-2 pavadinimas">
+                    <i class="bi bi-book"></i>
+                    <span class="pavadinimas">P.G. Knygynas</span>
+                </div>
+
+                <div class="col-10">
+                    <form action="/" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q" th:value="${param.q}"
+                                placeholder="Įveskite ieškomos knygos pavadinimą...">
+                            <button class="btn btn-primary" type="submit">Ieškoti</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+<!-- Nukopijuota iš index.html pabaiga -->
+ <hr>
 <div>
     <div>
         <img th:src="@{${knyga.virselioAdresas}}" width="300px" alt="Knygos viršelis" />
     </div>
-
-    <code class="text-primary">testas</code>
     <div >
         <h1 th:text="${knyga.pavadinimas}">Pavadinimas</h1>
         <ul>

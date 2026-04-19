@@ -13,6 +13,26 @@
 </head>
 
 <body>
+    <!-- Krepselio langas: -->
+    <div class="modal fade" id="krepselioZinute" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-check-circle text-success fs-1 mb-3"></i>
+                    <h5 class="mb-4">Knyga pridėta į krepšelį</h5>
+
+                    <div class="d-grid gap-2">
+                        <a href="/" class="btn btn-primary">Į krepšelį</a>
+
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Ieškoti toliau
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigacijos pradzia -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
@@ -70,7 +90,7 @@
                 <div class="col-10">
                     <form action="/" method="get">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="q"
+                            <input type="text" class="form-control" name="q" th:value="${param.q}"
                                 placeholder="Įveskite ieškomos knygos pavadinimą...">
                             <button class="btn btn-primary" type="submit">Ieškoti</button>
                         </div>
@@ -78,33 +98,59 @@
                 </div>
             </div>
             <!-- Formos pabaiga -->
-             <!-- Knygu sarasas: -->
-            <div th:each="knyga : ${knygos}" class="knyga-sarase row mt-3">
-                <div class="col-auto">
-                    <a th:href="@{/knyga(knyga=${knyga.id})}">
-                        <img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" />
-                    </a>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="mt-1">
-                                <a class="knygos-pavadinimas" th:href="@{/knyga(knyga=${knyga.id})}" th:text="${knyga.pavadinimas}">
-                                    Pavadinimas-placeholder
-                                </a>
-                            </div>
-                            <span class="" th:text="${knyga.autoriai}">autoriai-placeholder</span>
-                            <span th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</span>
-                            <span> puslapių</span>
-                            <div th:text="${knyga.aprasymas}" class="aprasymas-tekstas">aprasymas-placeholder</div>
-                        </div>
-                        <div class="col-2">
-                            <div th:text="${knyga.kaina}">kaina-placeholder</div>
-                            <button class="btn btn-primary">Pridėtį į krepšelį</buttoni>
-                        </div>
-                    </div>
+            <!-- Jei knygu nerasta: -->
+            <div class="container mt-4">
+                <div th:if="${#lists.isEmpty(knygos)}" class="text-center py-5">
+                    <h2 class="fw-light">Ieškomų knygų nerasta</h2>
+                    <p class="text-muted">Pabandykite ieškoti pagal kitą raktažodį, autorių, leidyklą.</p>
+                    <a href="/" class="btn btn-primary mt-3">Grįžti į pagrindinį</a>
                 </div>
 
+                <div th:if="${not #lists.isEmpty(knygos)}">
+
+                    <!-- Knygu sarasas: -->
+                    <div th:each="knyga : ${knygos}" class="knyga-sarase row mt-3">
+                        <div class="col-auto">
+                            <a th:href="@{/knyga(knyga=${knyga.id})}">
+                                <img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" />
+                            </a>
+                        </div>
+                        <div class="col h-100">
+                            <div class="row">
+                                <div class="col-10">
+                                    <div class="mt-1">
+                                        <a class="knygos-pavadinimas" th:href="@{/knyga(knyga=${knyga.id})}"
+                                            th:text="${knyga.pavadinimas}">
+                                            Pavadinimas-placeholder
+                                        </a>
+                                    </div>
+                                    <div class="nesvarbus-tekstas">
+                                        <span class="" th:text="${knyga.autoriai}">autoriai-placeholder</span>
+                                        <span style="margin-right: 0px !important;"
+                                            th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</span>
+                                        <span> puslapių</span>
+                                    </div>
+                                    <div th:text="${knyga.aprasymas}" class="aprasymas-tekstas">aprasymas-placeholder
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="kaina-krepselis">
+                                        <div class="text-center">
+                                            <span class="kaina" th:text="${knyga.kaina}">kaina-placeholder</span><span
+                                                class="kaina"> €</span>
+                                        </div>
+                                        <div>
+                                            <button class="w-100 btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#krepselioZinute">Pridėtį į krepšelį</buttoni>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
             <!-- Knygu saraso pabaiga -->
         </div>
