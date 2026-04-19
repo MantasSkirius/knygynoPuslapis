@@ -42,6 +42,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" href="/">Knygos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Naršyti pagal žanrą
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/(q='apysaka')}">Apysaka</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='atsiminimai')}">Atsiminimai</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='fantastika')}">Fantastika</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='istorinis')}">Istorinis</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='klasika')}">Klasika</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='meilės')}">Meilės</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='modernizmas')}">Modernizmas</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='novelės')}">Novelės</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='pjesė')}">Pjesė</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='poezija')}">Poezija</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='psichologinis')}">Psichologinis</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='romanas')}">Romanas</a></li>
+                            <li><a class="dropdown-item" th:href="@{/(q='trileris')}">Trileris</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" th:href="@{/}">Visi žanrai</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="/">Knygynai</a></li>
                     <li class="nav-item"><a class="nav-link" href="/">Renginiai</a></li>
                     <li class="nav-item"><a class="nav-link" href="/">Konkursai</a></li>
