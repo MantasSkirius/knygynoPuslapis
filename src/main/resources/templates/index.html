@@ -83,8 +83,10 @@
             <!-- Formos pradzia -->
             <div class="row align-items-center">
                 <div class="col-2 pavadinimas">
-                    <i class="bi bi-book"></i>
-                    <span class="pavadinimas">P.G. Knygynas</span>
+                    <a th:href="@{/}" class="text-decoration-none pavadinimas">
+                        <i class="bi bi-book"></i>
+                        <span>P.G. Knygynas</span>
+                    </a>
                 </div>
 
                 <div class="col-10">
@@ -125,7 +127,8 @@
                                         </a>
                                     </div>
                                     <div class="nesvarbus-tekstas">
-                                        <span class="" th:text="${knyga.autoriai}">autoriai-placeholder</span>
+                                         <a th:href="@{/(q=${knyga.autoriai})}" th:text="${knyga.autoriai}"></a>
+                                        <span th:text="${knyga.metai}">metai-placeholder</span>
                                         <span style="margin-right: 0px !important;"
                                             th:text="${knyga.puslapiuSkaicius}">Puslapiu-skaicius-placeholder</span>
                                         <span> puslapių</span>

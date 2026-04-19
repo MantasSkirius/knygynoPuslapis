@@ -1,6 +1,6 @@
 :root{
     --pagrindine-tamsi-spalva:#0d392a ;
-    --tamsesne-zalia:#07583b ;
+    --tamsesne-zalia:#053725 ;
 }
 .btn-primary, .bg-primary, .text-primary, .bg-dark {
     background-color: var(--pagrindine-tamsi-spalva) !important;
@@ -33,7 +33,7 @@ font-family: Arial, Helvetica, sans-serif !important;
 .pavadinimas *, .pavadinimas{
     font-family: 'Times New Roman', serif !important;
     font-size: 23px;
-    color:rgb(124, 68, 0);
+    color:rgb(79, 44, 0);
     font-weight: 300;
 }
 
@@ -41,6 +41,7 @@ font-family: Arial, Helvetica, sans-serif !important;
     background-color: #ecf4f1;
     padding-top: 10px;
     margin-top: 20px;
+    padding-bottom: 10px;
 }
 
 .nesvarbus-tekstas *{
@@ -48,6 +49,7 @@ font-family: Arial, Helvetica, sans-serif !important;
     font-size:14px;
     font-weight: 600;
     margin-right:10px;
+    text-decoration: none;
 }
 
 .aprasymas-tekstas {
@@ -82,4 +84,18 @@ font-family: Arial, Helvetica, sans-serif !important;
     font-weight: 300 !important;
     font-size: 30px !important;
     font-family: 'Times New Roman', Times, serif;
+}
+
+.nuoroda{
+    text-decoration: underline;
+    color: var(--tamsesne-zalia) !important;
+}
+.nurooda:hover{
+    color:black !important;
+    font-weight: bolder !important;
+}
+
+.aprasymas-pilnas{
+    white-space: pre-line;
+    line-height: 1.6;
 }

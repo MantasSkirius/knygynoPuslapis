@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title th:text="${knyga.pavadinimas}">Knygos detalės</title>
@@ -8,9 +9,10 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </head>
+
 <body>
-<!-- Nukopijuota iš index.html -->
- <!-- Krepselio langas: -->
+    <!-- Nukopijuota iš index.html -->
+    <!-- Krepselio langas: -->
     <div class="modal fade" id="krepselioZinute" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -80,8 +82,10 @@
             <!-- Formos pradzia -->
             <div class="row align-items-center">
                 <div class="col-2 pavadinimas">
-                    <i class="bi bi-book"></i>
-                    <span class="pavadinimas">P.G. Knygynas</span>
+                    <a th:href="@{/}" class="text-decoration-none pavadinimas">
+                        <i class="bi bi-book"></i>
+                        <span>P.G. Knygynas</span>
+                    </a>
                 </div>
 
                 <div class="col-10">
@@ -94,36 +98,75 @@
                     </form>
                 </div>
             </div>
-<!-- Nukopijuota iš index.html pabaiga -->
- <hr>
-<div>
-    <div>
-        <img th:src="@{${knyga.virselioAdresas}}" width="300px" alt="Knygos viršelis" />
-    </div>
-    <div >
-        <h1 th:text="${knyga.pavadinimas}">Pavadinimas</h1>
-        <ul>
-            <li>
-                Autorius
-                <a th:href="@{/(q=${knyga.autoriai})}" th:text="${knyga.autoriai}"></a>
-            </li>
+            <!-- Nukopijuota iš index.html pabaiga -->
+            <hr>
+            <div class="row align-items-stretch">
+                <div class="col-auto d-flex flex-column align-items-center" style="width: 300px;">
+                    <img th:src="@{${knyga.virselioAdresas}}" class="img-fluid" alt="Knygos viršelis" />
+                    <div class="mt-2 text-center">
+                        <span class="kaina">kaina: </span>
+                        <span class="kaina" th:text="${knyga.kaina}">0.00</span>
+                        <span class="kaina"> €</span>
+                    </div>
+                    <div class="w-100 mt-2">
+                        <button class="w-100 btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#krepselioZinute">Pridėti į krepšelį</button>
+                    </div>
+                    <div class="w-100 mt-2 mb-3">
+                        <button class="w-100 btn btn-primary">Pirkti</button>
+                    </div>
+                </div>
 
-            <li>
-                Leidėjas
-                <a th:href="@{/(q=${knyga.leidejas})}" th:text="${knyga.leidejas}"></a>
-            </li>
+                <div class="col border-start border-end pe-4 ps-4">
+                    <div class="mt-1">
+                        <a class="knygos-pavadinimas" th:href="@{/knyga(knyga=${knyga.id})}"
+                            th:text="${knyga.pavadinimas}">Pavadinimas</a>
+                    </div>
+                    <!-- Nesvarbus tekstas: -->
+                    <div class="nesvarbus-tekstas mb-2">
+                        <a th:href="@{/(q=${knyga.autoriai})}" th:text="${knyga.autoriai}"></a>
+                        <span th:text="${knyga.metai}"></span>
+                        <span th:text="${knyga.puslapiuSkaicius}"></span>
+                        <span style="margin-left: -10px">puslapiai</span>
+                    </div>
+                    <p class="aprasymas-pilnas" th:text="${knyga.aprasymas}"></p>
+                </div>
 
-            <li>Metai <span th:text="${knyga.metai}"></span></li>
-            <li>Puslapiai<span th:text="${knyga.puslapiuSkaicius}"></span></li>
-            <li>Žanrai<span th:text="${knyga.zanrai}"></span></li>
-            <li>Kalba<span th:text="${knyga.kalba}"></span></li>
-            <li>Formatas<span th:text="${knyga.formatoInformacija}"></span></li>
-            <li>Kaina<span th:text="${knyga.kaina}"></span></li>
-            <li>Aprašymas
-                <p th:text="${knyga.aprasymas}"></p>
-            </li>
-        </ul>
-    </div>
-</div>
+                <div class="col-3 ps-4">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <strong>Autorius(ė):</strong>
+                            <a class="nuoroda" th:href="@{/(q=${knyga.autoriai})}" th:text="${knyga.autoriai}"></a>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Leidėjas:</strong>
+                            <a class="nuoroda" th:href="@{/(q=${knyga.leidejas})}" th:text="${knyga.leidejas}"></a>
+                        </li>
+
+                        <li class="mb-2">
+                            <strong>Metai:</strong>
+                            <span th:text="${knyga.metai}"></span>
+                        </li>
+                        <li class="mb-2" th:if="${knyga.puslapiuSkaicius}">
+                            <strong>Puslapiai:</strong>
+                            <span th:text="${knyga.puslapiuSkaicius}"></span>
+                        </li>
+                        <li class="mb-2" th:if="${knyga.formatoInformacija}">
+                            <strong>Formatas:</strong>
+                            <span th:text="${knyga.formatoInformacija}"></span>
+                        </li>
+
+                        <li class="mb-2">
+                            <strong>Kalba:</strong>
+                            <span th:text="${knyga.kalba}"></span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Žanrai:</strong>
+                            <span th:text="${knyga.zanrai}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 </body>
+
 </html>

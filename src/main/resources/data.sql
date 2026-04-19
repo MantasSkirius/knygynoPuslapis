@@ -63,8 +63,6 @@ INSERT INTO knygos_autoriai (knygos_id, autoriaus_id) VALUES
 
 
 UPDATE knygos SET aprasymas = '
-Aprašymas
-
 Menotyros mokslų daktarė, žurnalistė Kristina Sabaliauskaitė 2008-aisiais debiutavo istoriniu romanu „Silva Rerum“ („Baltos lankos“). Kūrinys tapo tikru literatūriniu įvykiu Lietuvoje. Įvertintas kritikų ir kultūros istorijos specialistų, skaitytojus jis pavergė vaizdingumu ir sodria, turtinga kalba, pasakojančia apie autentišką XVII amžiaus (1659–1667 metų) atmosferą ir įvykius. Šmaikšti publicistės plunksna, grožiui ir detalėms atidi menotyrininkės akis ir humanitarės dėmesys epochos dvasinei istorijai – tai su niekuo nesupainiojamo autorės stiliaus dėmenys, teikiantys daugiasluoksnio skaitymo malonumą.
 
 2008-aisiais romanas „Silva Rerum“ pelnė Jurgos Ivanauskaitės premiją ir buvo įtrauktas į Lietuvių literatūros instituto kūrybiškiausių knygų dvyliktuką, o 2009-aisiais skaitytojų išrinktas Lietuvos Metų knyga ir kritikų oficialiai pavadintas viena įsimintiniausių dešimtmečio knygų.
