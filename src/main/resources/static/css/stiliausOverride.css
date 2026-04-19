@@ -2,11 +2,12 @@
     --pagrindine-tamsi-spalva:#0d392a ;
     --tamsesne-zalia:#053725 ;
 }
-.btn-primary, .bg-primary, .text-primary, .bg-dark {
+.btn-primary, .bg-primary, .text-primary, .bg-dark, .nav-pills .nav-link.active, .nav-item .nav-link.active, .dropdown-item.active, .dropdown-item:active{
     background-color: var(--pagrindine-tamsi-spalva) !important;
     border-color: var(--pagrindine-tamsi-spalva) !important;
     color: white !important;
 }
+
 *{
 font-family: Arial, Helvetica, sans-serif !important;
 }

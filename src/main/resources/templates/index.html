@@ -34,7 +34,7 @@
     </div>
 
     <!-- Navigacijos pradzia -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -43,8 +43,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" href="/">Knygos</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item active dropdown">
+                        <a class="active nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown">
                             Naršyti pagal žanrą
                         </a>
@@ -78,7 +78,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link active px-2" href="">
-                            <i class="bi bi-cart"></i>
+                            <i class="bi bi-cart"></i>  Krepšelis
                         </a>
                     </li>
 
@@ -93,11 +93,11 @@
                             <li><a class="dropdown-item text-danger" href="">Atsijungti</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active px-2" href="/">
                             <i class="bi bi-heart me-1"></i>Pažymėtos
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -118,7 +118,7 @@
                     <form action="/" method="get">
                         <div class="input-group">
                             <input type="text" class="form-control" name="q" th:value="${param.q}"
-                                placeholder="Įveskite ieškomos knygos pavadinimą...">
+                                placeholder="Įveskite ieškomos knygos pavadinimą, autorių, žanrą...">
                             <button class="btn btn-primary" type="submit">Ieškoti</button>
                         </div>
                     </form>
@@ -139,7 +139,7 @@
                     <div th:each="knyga : ${knygos}" class="knyga-sarase row mt-3">
                         <div class="col-auto">
                             <a th:href="@{/knyga(knyga=${knyga.id})}">
-                                <img th:src="@{${knyga.virselioAdresas}}" width="100px" alt="Knygos viršelis" />
+                                <img th:src="@{${knyga.virselioAdresas}}" class="shadow-sm" width="100px" alt="Knygos viršelis" />
                             </a>
                         </div>
                         <div class="col h-100">
